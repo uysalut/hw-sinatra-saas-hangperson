@@ -18,8 +18,7 @@ class HangpersonApp < Sinatra::Base
   # These two routes are good examples of Sinatra syntax
   # to help you with the rest of the assignment
   get '/' do
-    "<!DOCTYPE html><html><head></head><body><h1>S.A. World</h1></body></html>"
-    # redirect '/new'
+    redirect '/new'
   end
   
   get '/new' do
