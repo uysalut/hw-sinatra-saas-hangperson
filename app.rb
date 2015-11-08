@@ -29,7 +29,7 @@ class HangpersonApp < Sinatra::Base
     # NOTE: don't change next line - it's needed by autograder!
     word = params[:word] || HangpersonGame.get_random_word
     # NOTE: don't change previous line - it's needed by autograder!
-
+    
     @game = HangpersonGame.new(word)
     redirect '/show'
   end
@@ -63,12 +63,13 @@ class HangpersonApp < Sinatra::Base
   
   get '/win' do
     ### YOUR CODE HERE ###
-    erb :win # You may change/remove this line
+    erb :win if check_win_or_lose == :win # You may change/remove this line
   end
   
   get '/lose' do
     ### YOUR CODE HERE ###
-    erb :lose # You may change/remove this line
+    erb :lose if check_win_or_lose == :lose  # You may change/remove this line
   end
+  
   
 end
