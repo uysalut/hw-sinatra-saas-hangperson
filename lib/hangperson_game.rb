@@ -3,8 +3,9 @@ class HangpersonGame
   # add the necessary class methods, attributes, etc. here
   # to make the tests in spec/hangperson_game_spec.rb pass.
   def guess letter
-    raise(ArgumentError) if (letter == '') || (letter == nil ) || !(letter =~ /[a-z]/i)
-    return false if (guesses.include? letter) || (wrong_guesses.include? letter) || (letter != letter.downcase)
+    raise(ArgumentError) if (letter == '') || (letter == nil ) || !(letter =~ /[a-zA-Z]/i)
+    letter = letter.downcase
+    return false if (guesses.include? letter) || (wrong_guesses.include? letter)
     if word.include? letter
       @guesses << letter
       return true
